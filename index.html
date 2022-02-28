@@ -5,6 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <title>Calendar</title>
 </head>
@@ -12,90 +16,75 @@
 
   <header class="header">
     <h1>Calendar</h1>
-    <button class="switch-theme-btn"></button>
+    <button class="switch-theme-btn">light theme</button>
   </header>
 
   <main class="main">
-    <div class="container">
-      <div class="calendar-wrapper">
-        <div class="calendar-header">
-          <select class="month-selector">
-            <option>January</option>
-            <option>February</option>
-            <option>March</option>
-            <option>April</option>
-            <option>April</option>
-            <option>May</option>
-            <option>June</option>
-            <option>July</option>
-            <option>August</option>
-            <option>September</option>
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
-          </select>
-          <select class="year-selector">
-            <option>2022</option>
-          </select>
-          <button class="previous-month"><</button>
-          <button class="previous-month">></button>
+    <div class="calendar-wrapper">
+      <div class="calendar-header">
+        <select class="month-selector">
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+        <select class="year-selector">
+          <option>2022</option>
+        </select>
+        <button class="previous-month"><</button>
+        <button class="next-month">></button>
+      </div>
+      <div class="calendar-main">
+        <div class="weekdays">
+          <div class="weekday">Mo</div>
+          <div class="weekday">Tu</div>
+          <div class="weekday">We</div>
+          <div class="weekday">Th</div>
+          <div class="weekday">Fr</div>
+          <div class="weekday">Sa</div>
+          <div class="weekday">Su</div>
         </div>
-        <div class="calendar-main">
-          <div class="weekdays">
-            <div class="weekday">Mo</div>
-            <div class="weekday">Tu</div>
-            <div class="weekday">We</div>
-            <div class="weekday">Th</div>
-            <div class="weekday">Fr</div>
-            <div class="weekday">Sa</div>
-            <div class="weekday">Sa</div>
-            <div class="weekday">Su</div>
-          </div>
-          <div class="week-1">
-            <div class="month-day">1</div>
-            <div class="month-day">2</div>
-            <div class="month-day">3</div>
-            <div class="month-day">4</div>
-            <div class="month-day">5</div>
-            <div class="month-day">6</div>
-            <div class="month-day">7</div>
-          </div>
-          <div class="week-2">
-            <div class="month-day">8</div>
-            <div class="month-day">9</div>
-            <div class="month-day">10</div>
-            <div class="month-day">11</div>
-            <div class="month-day">12</div>
-            <div class="month-day">13</div>
-            <div class="month-day">14</div>
-          </div>
-          <div class="week-3">
-            <div class="month-day">15</div>
-            <div class="month-day">16</div>
-            <div class="month-day">17</div>
-            <div class="month-day">18</div>
-            <div class="month-day">19</div>
-            <div class="month-day">20</div>
-            <div class="month-day">21</div>
-          </div>
-          <div class="week-4">
-            <div class="month-day">22</div>
-            <div class="month-day">23</div>
-            <div class="month-day">24</div>
-            <div class="month-day">25</div>
-            <div class="month-day">26</div>
-            <div class="month-day">27</div>
-            <div class="month-day">28</div>
-          </div>
-          <div class="week-5">
-            <div class="month-day">29</div>
-            <div class="month-day">30</div>
-            <div class="month-day">31</div>
-            <div class="month-day"></div>
-            <div class="month-day"></div>
-            <div class="month-day"></div>
-            <div class="month-day"></div>
-          </div>
+        <div class="month-days">
+          <div class="month-day">1</div>
+          <div class="month-day">2</div>
+          <div class="month-day">3</div>
+          <div class="month-day">4</div>
+          <div class="month-day">5</div>
+          <div class="month-day">6</div>
+          <div class="month-day">7</div>
+          <div class="month-day">8</div>
+          <div class="month-day">9</div>
+          <div class="month-day">10</div>
+          <div class="month-day">11</div>
+          <div class="month-day">12</div>
+          <div class="month-day">13</div>
+          <div class="month-day">14</div>
+          <div class="month-day">15</div>
+          <div class="month-day">16</div>
+          <div class="month-day">17</div>
+          <div class="month-day">18</div>
+          <div class="month-day">19</div>
+          <div class="month-day">20</div>
+          <div class="month-day">21</div>
+          <div class="month-day">22</div>
+          <div class="month-day">23</div>
+          <div class="month-day">24</div>
+          <div class="month-day">25</div>
+          <div class="month-day">26</div>
+          <div class="month-day">27</div>
+          <div class="month-day">28</div>
+          <div class="month-day">29</div>
+          <div class="month-day today">30</div>
+          <div class="month-day">31</div>
         </div>
       </div>
     </div>
