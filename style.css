@@ -58,6 +58,14 @@ body {
   cursor: pointer;
 }
 
+.month-selector:hover, .year-selector:hover {
+  
+}
+
+.month-selector {
+  margin-right: 10px;
+}
+
 .previous-month, .next-month {
   font-family: inherit;
   font-size: inherit;

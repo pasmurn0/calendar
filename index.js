@@ -1,6 +1,8 @@
 let currentDate = new Date();
 let currentYear = currentDate.getFullYear();
 let currentMonth = currentDate.getMonth();
+let currentDay = currentDate.getDay();
+console.log(currentDay);
 let month = currentMonth;
 let year = currentYear;
 
@@ -8,6 +10,8 @@ const monthDays = document.querySelector('.month-days');
 const monthsInSelector = document.querySelectorAll('.month');
 const monthSelector = document.querySelector('.month-selector');
 const yearSelector = document.querySelector('.year-selector');
+const nextMonth = document.querySelector('.next-month');
+const previousMonth = document.querySelector('.previous-month');
 
 
 
@@ -21,15 +25,11 @@ function getDayOfWeekOfFirstDayOfMonth(month, year) {
   return dayOfWeek;
 }
 
-console.log(getDayOfWeekOfFirstDayOfMonth(1, 2099));
-
 
 // Получить количество дней в месяце (по сути получаю последний день месяца)
 function getDaysInMonth(month, year) {
-
   return (new Date(year, +month + 1, 0).getDate());
 }
-// console.log(new Date(2022, 2, 0).getDate())
 
 // Создание календаря (предварительно удаляю старый месяц)
 function createCalendar(daysInMonth, dayOfWeek) {
@@ -41,6 +41,9 @@ function createCalendar(daysInMonth, dayOfWeek) {
   }
   for (let i = 1; i <= daysInMonth; i++) {
     const div = document.createElement('div');
+    if (i == currentDay && month == currentMonth && year == currentYear) {
+      div.classList.add('today');
+    }
     div.innerHTML = i;
     monthDays.appendChild(div);
   }
@@ -73,10 +76,12 @@ years.forEach(year => {
   }
 })
 
-// создается календарь текущего месяца
+
+// при загрузке создается календарь текущего месяца
 createCalendar(getDaysInMonth(currentMonth, currentYear), getDayOfWeekOfFirstDayOfMonth(currentMonth, currentYear));
 
-// при изменении месяца через селектор менять создать новый календарь
+
+// при изменении месяца через селектор создать новый календарь
 monthSelector.addEventListener('change', (event) => {
   month = event.target.value;
 
@@ -85,6 +90,37 @@ monthSelector.addEventListener('change', (event) => {
 
 yearSelector.addEventListener('change', (event) => {
   year = event.target.value;
+
+  createCalendar(getDaysInMonth(month, year), getDayOfWeekOfFirstDayOfMonth(month, year));
+})
+
+
+
+// Создлание нового календаря по кликам кнопок 'next' и 'previous', а также отображенние выбранного месяца / года в селекторах
+nextMonth.addEventListener('click', () => {
+  if (month == 11) {
+    month = 0;
+    year++;
+  } else {
+    month++;
+  }
+
+  monthsInSelector[month].selected = true;
+  years[2100 - year].selected = true;
+
+  createCalendar(getDaysInMonth(month, year), getDayOfWeekOfFirstDayOfMonth(month, year));
+})
+
+previousMonth.addEventListener('click', () => {
+  if (month == 0) {
+    month = 11;
+    year--;
+  } else {
+    month--;
+  }
+
+  monthsInSelector[month].selected = true;
+  years[2100 - year].selected = true;
 
   createCalendar(getDaysInMonth(month, year), getDayOfWeekOfFirstDayOfMonth(month, year));
 })
