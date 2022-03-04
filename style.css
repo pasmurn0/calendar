@@ -1,8 +1,8 @@
 :root {
   --main-color: white;
   --first-font-color: black;
-  --second-font-color: #E5E5E5;
-  --today-color: #FB3F4A;
+  --second-font-color: #666666;
+  --accent-color: #FB3F4A;
 }
 
 * {
@@ -53,13 +53,17 @@ body {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  color: var(--first-font-color);
   font-weight: 700;
+  background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: .3s;
 }
 
-.month-selector:hover, .year-selector:hover {
-  
+.month, .year {
+  color: var(--first-font-color);
+  background-color: var(--main-color);
 }
 
 .month-selector {
@@ -70,13 +74,25 @@ body {
   font-family: inherit;
   font-size: inherit;
   color: var(--first-font-color);
+  font-weight: 700;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .previous-month {
   margin-left: auto;
+}
+
+.month-selector:hover,
+.year-selector:hover,
+.btn:hover{
+  color: var(--accent-color);
+}
+
+.btn:active {
+  transform: scale(0.9);
 }
 
 .calendar-main {
@@ -105,6 +121,7 @@ body {
 
 .today {
   position: relative;
+  color: white;
   z-index: 1;
 }
 
@@ -116,6 +133,6 @@ body {
   left: 1.715px;
   width: 56px;
   height: 56px;
-  background-color: var(--today-color);
+  background-color: var(--accent-color);
   border-radius: 50%;
 }

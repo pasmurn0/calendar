@@ -12,6 +12,8 @@ const monthSelector = document.querySelector('.month-selector');
 const yearSelector = document.querySelector('.year-selector');
 const nextMonth = document.querySelector('.next-month');
 const previousMonth = document.querySelector('.previous-month');
+const switchThemeBtn = document.querySelector('.switch-theme-btn');
+
 
 
 
@@ -31,7 +33,8 @@ function getDaysInMonth(month, year) {
   return (new Date(year, +month + 1, 0).getDate());
 }
 
-// Создание календаря (предварительно удаляю старый месяц)
+
+// Создание календаря (предварительно удаляю старый месяц), кроме того, проверяется текущуя дата и в случае, если сегодня в создаваемом месяце, то на этот день устанавливается класс 'today'
 function createCalendar(daysInMonth, dayOfWeek) {
   monthDays.innerHTML = '';
 
@@ -48,6 +51,7 @@ function createCalendar(daysInMonth, dayOfWeek) {
     monthDays.appendChild(div);
   }
 }
+
 
 // наполняю селектор годов годами с 1970 по 2100
 function addYears() {
@@ -123,4 +127,20 @@ previousMonth.addEventListener('click', () => {
   years[2100 - year].selected = true;
 
   createCalendar(getDaysInMonth(month, year), getDayOfWeekOfFirstDayOfMonth(month, year));
+})
+
+switchThemeBtn.addEventListener('click', () => {
+  if (switchThemeBtn.textContent === 'light theme') {
+    switchThemeBtn.textContent = 'dark theme';
+    document.documentElement.style.setProperty('--main-color', 'black');
+    document.documentElement.style.setProperty('--first-font-color', 'white');
+    document.documentElement.style.setProperty('--second-font-color', '#666');
+    document.documentElement.style.setProperty('--accent-color', '#589C5F');
+  } else {
+    switchThemeBtn.textContent = 'light theme';
+    document.documentElement.style.setProperty('--main-color', 'white');
+    document.documentElement.style.setProperty('--first-font-color', 'black');
+    document.documentElement.style.setProperty('--second-font-color', '#CCC');
+    document.documentElement.style.setProperty('--accent-color', '#FB3F4A');
+    }
 })
