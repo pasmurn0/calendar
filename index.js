@@ -1,8 +1,9 @@
 let currentDate = new Date();
 let currentYear = currentDate.getFullYear();
 let currentMonth = currentDate.getMonth();
-let currentDay = currentDate.getDay();
-console.log(currentDay);
+let currentDay = currentDate.getDate();
+console.log('date' + ' ' + currentDate);
+console.log('day' + ' ' + currentDay);
 let month = currentMonth;
 let year = currentYear;
 
